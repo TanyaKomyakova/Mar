@@ -10,11 +10,13 @@ services:
       - MYSQL_DATABASE=app
       - MYSQL_USER=app
       - MYSQL_PASSWORD=pass
-node-app:
-    build: artifacts/gate-simulator
+
+  node-app:
+    build: gate-simulator
     image: node-app:1.0
     ports:
       - '9999:9999'
+
 
 
 
