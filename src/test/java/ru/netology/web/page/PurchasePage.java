@@ -16,9 +16,9 @@ public class PurchasePage {
     private SelenideElement buyInCreditButton = $(".button.button.button_view_extra.button_size_m.button_theme_alfa-on-white");
     private SelenideElement cardField = $(".input__control");
     private ElementsCollection enterMonth = $$(".input__control");
-    private SelenideElement enterYear = $(".22");
+    private SelenideElement enterYear = $(".");
     private SelenideElement enterOwner = $(".input_width_available");
-    private SelenideElement enterACode = $(".999");
+    private SelenideElement enterACode = $(".");
     private SelenideElement continueButton = $(".pin_theme_alfa-on-white");
 
 
