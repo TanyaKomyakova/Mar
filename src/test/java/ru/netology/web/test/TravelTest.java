@@ -12,9 +12,10 @@ public class TravelTest {
     void buyTour() {
         open("http://localhost:8080");
         val purchasePage = new PurchasePage();
-        purchasePage.purchase1();
-        val cardInfo = DataHelper.getCard();
-        val purchasePage1 = purchasePage.purchase(cardInfo);
+        val cardDebet = DataHelper.getCard();
+        val cardData = purchasePage.purchase(cardDebet);
+
+
 
 
 
