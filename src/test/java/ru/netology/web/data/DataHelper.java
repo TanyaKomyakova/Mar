@@ -8,8 +8,8 @@ public class DataHelper {
 
     @Value
     public static class CardInfo{
-        private String cardDebet;
-        private String cardCredit;
+        private String validCard;
+        private String invalidCard;
         private String validMonth;
         private String invalidMonth;
         private String validYear;

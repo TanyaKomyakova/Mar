@@ -9,20 +9,42 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TravelTest {
     @Test
-    void buyTour() {
+    void successfulTourPurchase() {
         open("http://localhost:8080");
         val purchasePage = new PurchasePage();
-        val cardDebet = DataHelper.getCard();
-        val cardData = purchasePage.purchase(cardDebet);
+        val cardApproved = DataHelper.getCard();
+        val cardOperation = purchasePage.approvedPurchase(cardApproved);
+        purchasePage.getAMessageAboutSuccessfulOperation();
+    }
 
+    @Test
+    void tourPurchaseDeclined(){
+        open("http://localhost:8080");
+        val purchasePage = new PurchasePage();
+        val cardDeclined = DataHelper.getCard();
+        val cardOperation = purchasePage.declinedPurchase(cardDeclined);
+        purchasePage.getAMessageAboutDeclinedOperation();
+    }
 
-
-
-
-
-
-
+    @Test
+    void successfulPurchaseOfTheTourOnCredit(){
+        open("http://localhost:8080");
+        val purchasePage = new PurchasePage();
+        val cardApproved = DataHelper.getCard();
+        val cardOperation = purchasePage.approvedCreditPurchase(cardApproved);
+        purchasePage.getAMessageAboutSuccessfulOperation();
 
     }
+
+    @Test
+    void declinedPurchaseOfTheTourOnCredit(){
+        open("http://localhost:8080");
+        val purchasePage = new PurchasePage();
+        val cardDeclined = DataHelper.getCard();
+        val cardOperation = purchasePage.declinedCreditPurchase(cardDeclined);
+        purchasePage.getAMessageAboutDeclinedOperation();
+    }
+
+
 
 }
