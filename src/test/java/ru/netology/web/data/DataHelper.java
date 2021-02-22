@@ -19,7 +19,7 @@ public class DataHelper {
     }
 
     public static CardInfo getCard(){
-        return new CardInfo("4444 4444 4444 4441","4444 4444 4444 4442", "11","1", "21", "20", "Vasya","453");
+        return new CardInfo("4444 4444 4444 4441","4444 4444 4444 4442", "11","01", "21", "20", "Vasya","453");
     }
 
 

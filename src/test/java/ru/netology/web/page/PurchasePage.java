@@ -23,6 +23,7 @@ public class PurchasePage {
     private ElementsCollection enterACode = $$(".input__control");
     private ElementsCollection continueButton = $$(".button__content");
     private ElementsCollection operationMessage = $$(".notification");
+    private ElementsCollection dataError = $$(".input__sub");
 
 
     public PurchasePage() {
@@ -81,7 +82,57 @@ public class PurchasePage {
         return new PurchasePage();
     }
 
+    public PurchasePage monthValue(DataHelper.CardInfo info){
+        buyButton.get(0).click();
+        cardField.get(0).setValue(info.getValidCard());
+        enterMonth.get(1).setValue(info.getInvalidMonth());
+        enterYear.get(2).setValue(info.getValidYear());
+        enterOwner.get(3).setValue(info.getName());
+        enterACode.get(4).setValue(info.getCode());
+        continueButton.get(2).click();
+        return new PurchasePage();
+    }
 
+    public void monthErrorMessage(){
+        dataError.get(0).shouldBe(visible,text("Неверно указан срок действия карты"));
+    }
+
+    public PurchasePage monthAmountOfPaymentOnCredit(DataHelper.CardInfo info){
+        buyInCreditButton.get(1).click();
+        cardField.get(0).setValue(info.getValidCard());
+        enterMonth.get(1).setValue(info.getInvalidMonth());
+        enterYear.get(2).setValue(info.getValidYear());
+        enterOwner.get(3).setValue(info.getName());
+        enterACode.get(4).setValue(info.getCode());
+        continueButton.get(2).click();
+        return new PurchasePage();
+    }
+
+    public PurchasePage valueOfTheYear(DataHelper.CardInfo info){
+        buyButton.get(0).click();
+        cardField.get(0).setValue(info.getValidCard());
+        enterMonth.get(1).setValue(info.getValidMonth());
+        enterYear.get(2).setValue(info.getInvalidYear());
+        enterOwner.get(3).setValue(info.getName());
+        enterACode.get(4).setValue(info.getCode());
+        continueButton.get(2).click();
+        return new PurchasePage();
+    }
+
+    public void yearErrorMessage(){
+        dataError.get(0).shouldBe(visible,text("Истёк срок действия карты"));
+    }
+
+    public PurchasePage valueOfTheLoanPaymentYear(DataHelper.CardInfo info){
+        buyInCreditButton.get(1).click();
+        cardField.get(0).setValue(info.getValidCard());
+        enterMonth.get(1).setValue(info.getValidMonth());
+        enterYear.get(2).setValue(info.getInvalidYear());
+        enterOwner.get(3).setValue(info.getName());
+        enterACode.get(4).setValue(info.getCode());
+        continueButton.get(2).click();
+        return new PurchasePage();
+    }
 
 
 }

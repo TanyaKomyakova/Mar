@@ -26,6 +26,7 @@ public class TravelTest {
         val statusExpected = "APPROVED";
         val statusActual = SQLHelper.getPurchaseInformation();
         assertEquals(statusExpected,statusActual);
+
     }
 
     @Test
@@ -66,4 +67,47 @@ public class TravelTest {
         val statusActual = SQLHelper.getInformationAboutBuyingOnCredit();
         assertEquals(statusExpected,statusActual);
     }
+
+    @Test
+    void  checkMonth (){
+        open("http://localhost:8080");
+        val purchasePage = new PurchasePage();
+        val cardApproved = DataHelper.getCard();
+        val cardOperation = purchasePage.monthValue(cardApproved);
+        purchasePage.monthErrorMessage();
+    }
+
+    @Test
+    void  checkingTheMonthWhenReceivingALoan (){
+        open("http://localhost:8080");
+        val purchasePage = new PurchasePage();
+        val cardApproved = DataHelper.getCard();
+        val cardOperation = purchasePage.monthAmountOfPaymentOnCredit(cardApproved);
+        purchasePage.monthErrorMessage();
+    }
+
+    @Test
+    void  yearCheck (){
+        open("http://localhost:8080");
+        val purchasePage = new PurchasePage();
+        val cardApproved = DataHelper.getCard();
+        val cardOperation = purchasePage.valueOfTheYear(cardApproved);
+        purchasePage.yearErrorMessage();
+    }
+
+    @Test
+    void  checkingTheYearWhenReceivingALoan(){
+        open("http://localhost:8080");
+        val purchasePage = new PurchasePage();
+        val cardApproved = DataHelper.getCard();
+        val cardOperation = purchasePage.valueOfTheLoanPaymentYear(cardApproved);
+        purchasePage.yearErrorMessage();
+    }
+
+
+
+
+
 }
+
+
