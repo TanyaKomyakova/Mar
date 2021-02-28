@@ -80,8 +80,4 @@ public class PurchasePage {
         continueButton.get(2).click();
         return new PurchasePage();
     }
-
-
-
-
 }
